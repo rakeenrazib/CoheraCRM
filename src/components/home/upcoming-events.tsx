@@ -5,10 +5,10 @@ import { CalendarOutlined } from "@ant-design/icons";
 import { Badge, Card, List, Skeleton as AntdSkeleton } from "antd";
 import dayjs from "dayjs";
 
-import { Text } from "../text";
-import type { DashboardCalendarUpcomingEventsQuery } from "../../graphql/types";
+import { Text } from "@/components/text";
+import type { DashboardCalendarUpcomingEventsQuery } from "@/graphql/types";
 
-import { DASHBOARD_CALENDAR_UPCOMING_EVENTS_QUERY } from "../../graphql/queries";
+import { DASHBOARD_CALENDAR_UPCOMING_EVENTS_QUERY } from "@/graphql/queries";
 
 export const UpcomingEvents = () => {
   const {
@@ -37,16 +37,14 @@ export const UpcomingEvents = () => {
     },
   });
 
-  const events = data?.data ?? [];
-
   return (
     <Card
       style={{
         height: "100%",
       }}
-      styles={{
-        header: { padding: "8px 16px" },
-        body: { padding: "0 1rem" },
+      headStyle={{ padding: "8px 16px" }}
+      bodyStyle={{
+        padding: "0 1rem",
       }}
       title={
         <div
@@ -100,13 +98,9 @@ export const UpcomingEvents = () => {
       ) : (
         <List
           itemLayout="horizontal"
-          dataSource={events}
+          dataSource={data?.data || []}
           renderItem={(item) => {
             const renderDate = () => {
-              if (!item?.startDate || !item?.endDate) {
-                return "";
-              }
-
               const start = dayjs(item.startDate).format(
                 "MMM DD, YYYY - HH:mm",
               );
@@ -118,11 +112,11 @@ export const UpcomingEvents = () => {
             return (
               <List.Item>
                 <List.Item.Meta
-                  avatar={<Badge color={item?.color || "#d9d9d9"} />}
-                  title={<Text size="xs">{renderDate()}</Text>}
+                  avatar={<Badge color={item.color} />}
+                  title={<Text size="xs">{`${renderDate()}`}</Text>}
                   description={
                     <Text ellipsis={{ tooltip: true }} strong>
-                      {item?.title ?? "Untitled event"}
+                      {item.title}
                     </Text>
                   }
                 />
@@ -132,7 +126,7 @@ export const UpcomingEvents = () => {
         />
       )}
 
-      {!isLoading && events.length === 0 && <NoEvent />}
+      {!isLoading && data?.data.length === 0 && <NoEvent />}
     </Card>
   );
 };
@@ -146,8 +140,8 @@ const NoEvent = () => (
       height: "220px",
     }}
   >
-    No upcoming event
+    No Upcoming Event
   </span>
 );
 
-export default UpcomingEvents;
+export default UpcomingEvents
