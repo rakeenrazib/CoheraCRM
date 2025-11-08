@@ -1,41 +1,485 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="refine | Build your React-based CRUD applications, without constraints."
-    />
-    <meta
-      data-rh="true"
-      property="og:image"
-      content="https://refine.dev/img/refine_social.png"
-    />
-    <meta
-      data-rh="true"
-      name="twitter:image"
-      content="https://refine.dev/img/refine_social.png"
-    />
-    <title>
-      Refine - Build your React-based CRUD applications, without constraints.
-    </title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <script type="module" src="/src/index.tsx"></script>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cohera CRM - The Future of Customer Relationships</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Base font */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+        /* Gradient text utility */
+        .text-gradient {
+            background: linear-gradient(to right, #3b82f6, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
 
-      To begin the development, run `npm dev` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+        /* --- Animation Styles --- */
+
+        /* Base state for elements that fade in on scroll */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            will-change: opacity, transform;
+        }
+
+        /* Visible state for elements */
+        .is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Different delay utilities for staggered animations */
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; }
+
+        /* Simple fade-in for hero elements (no vertical move) */
+        .hero-fade-in {
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        .hero-fade-in-1 { animation-delay: 0.2s; }
+        .hero-fade-in-2 { animation-delay: 0.4s; }
+        .hero-fade-in-3 { animation-delay: 0.6s; }
+        .hero-fade-in-4 { animation-delay: 0.8s; }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-sm shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="text-3xl font-extrabold text-gradient">
+                Cohera
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#features" class="text-gray-600 hover:text-blue-600 transition-colors">Features</a>
+                <a href="#pricing" class="text-gray-600 hover:text-blue-600 transition-colors">Pricing</a>
+                <a href="#integrations" class="text-gray-600 hover:text-blue-600 transition-colors">Integrations</a>
+                <a href="#testimonials" class="text-gray-600 hover:text-blue-600 transition-colors">Testimonials</a>
+            </div>
+
+            <!-- Desktop Auth Buttons -->
+            <div class="hidden md:flex items-center space-x-3">
+                <a href="/log_in.html" class="text-gray-600 hover:text-blue-600 font-medium px-4 py-2 rounded-lg transition-colors">
+                    Sign In
+                </a>
+                <a href="#" class="bg-blue-600 text-white font-medium px-5 py-2 rounded-lg shadow-md hover:bg-blue-700 transition-colors">
+                    Start Free Trial
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+            <a href="wsrvdsfvdf.html">Dashboard</a>
+        </nav>
+        
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <a href="#features" class="block px-6 py-3 text-gray-600 hover:bg-gray-50">Features</a>
+            <a href="#pricing" class="block px-6 py-3 text-gray-600 hover:bg-gray-50">Pricing</a>
+            <a href="#integrations" class="block px-6 py-3 text-gray-600 hover:bg-gray-50">Integrations</a>
+            <a href="#testimonials" class="block px-6 py-3 text-gray-600 hover:bg-gray-50">Testimonials</a>
+            <div class="border-t border-gray-100 p-4 space-y-3">
+                <a href="#" class="block w-full text-center text-gray-600 hover:text-blue-600 font-medium px-4 py-2 rounded-lg transition-colors">
+                    Sign In
+                </a>
+                <a href="#" class="block w-full text-center bg-blue-600 text-white font-medium px-5 py-2 rounded-lg shadow-md hover:bg-blue-700 transition-colors">
+                    Start Free Trial
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Hero Section -->
+        <section class="relative pt-20 pb-24 md:pt-32 md:pb-36 overflow-hidden">
+            <div class="container mx-auto px-6 text-center">
+                <!-- Hero Heading -->
+                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter hero-fade-in hero-fade-in-1">
+                    The Future of
+                    <span class="block text-gradient mt-2 md:mt-4">Customer Relationships</span>
+                </h1>
+                
+                <!-- Hero Subheading -->
+                <p class="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-gray-600 hero-fade-in hero-fade-in-2">
+                    Cohera is the all-in-one CRM built to help you grow your business faster. Unify your marketing, sales, and service teams on one powerful, easy-to-use platform.
+                </p>
+                
+                <!-- Hero CTA -->
+                <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4 hero-fade-in hero-fade-in-3">
+                    <a href="#" class="w-full sm:w-auto px-8 py-3 bg-blue-600 text-white text-lg font-semibold rounded-lg shadow-lg hover:bg-blue-700 transition-all transform hover:scale-105">
+                        Start Your Free Trial
+                    </a>
+                    <a href="#" class="w-full sm:w-auto px-8 py-3 bg-gray-100 text-gray-700 text-lg font-semibold rounded-lg hover:bg-gray-200 transition-colors">
+                        Book a Demo
+                    </a>
+                </div>
+                <p class="mt-4 text-sm text-gray-500 hero-fade-in hero-fade-in-3">14-day free trial · No credit card required</p>
+                
+                <!-- Hero Image / Product Screenshot -->
+                <div class="mt-16 md:mt-20 hero-fade-in hero-fade-in-4">
+                    <div class="relative max-w-5xl mx-auto">
+                        <div class="absolute -inset-2 rounded-xl bg-gradient-to-r from-blue-400 to-indigo-600 opacity-20 blur-2xl"></div>
+                        <img src="https://placehold.co/1200x700/e0e7ff/6366f1?text=Cohera+Dashboard+UI" 
+                             alt="Cohera CRM Dashboard"
+                             class="relative w-full rounded-xl shadow-2xl border border-gray-200">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Proof / Trusted By -->
+        <section class="py-16 bg-gray-50/70">
+            <div class="container mx-auto px-6">
+                <p class="text-center text-base font-semibold text-gray-500 animate-on-scroll">
+                    Trusted by over 10,000+ companies worldwide
+                </p>
+                <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 items-center animate-on-scroll delay-100">
+                    <!-- Logos - Using placeholders -->
+                    <img src="https://placehold.co/150x40/cccccc/999999?text=TechCorp" alt="TechCorp Logo" class="mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition">
+                    <img src="https://placehold.co/150x40/cccccc/999999?text=Innovate" alt="Innovate Logo" class="mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition">
+                    <img src="https://placehold.co/150x40/cccccc/999999?text=Quantum" alt="Quantum Logo" class="mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition">
+                    <img src="https://placehold.co/150x40/cccccc/999999?text=Apex" alt="Apex Logo" class="mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition">
+                    <img src="https://placehold.co/150x40/cccccc/999999?text=Momentum" alt="Momentum Logo" class="mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition">
+                    <img src="https://placehold.co/150x40/cccccc/999999?text=Synergy" alt="Synergy Logo" class="mx-auto grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition">
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section (Alternating) -->
+        <section id="features" class="py-24 md:py-32 overflow-hidden">
+            <div class="container mx-auto px-6 space-y-24">
+
+                <!-- Feature 1: Sales Automation -->
+                <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center animate-on-scroll">
+                    <div class="pr-6">
+                        <span class="inline-block px-4 py-1 text-sm font-semibold text-blue-700 bg-blue-100 rounded-full">Sales Automation</span>
+                        <h2 class="mt-4 text-4xl md:text-5xl font-extrabold tracking-tighter">Close more deals, faster.</h2>
+                        <p class="mt-5 text-lg text-gray-600">
+                            Automate your sales process from lead to close. Cohera's AI-powered tools help you identify the best leads, nurture relationships, and forecast revenue with stunning accuracy.
+                        </p>
+                        <ul class="mt-6 space-y-3">
+                            <li class="flex items-center text-gray-700">
+                                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                Visual deal pipelines & drag-and-drop management
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                AI-powered lead scoring and predictive insights
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                Automated email sequences and follow-ups
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <img src="https://placehold.co/600x450/dbeafe/3b82f6?text=Sales+Pipeline+View" alt="Sales Pipeline" class="rounded-xl shadow-2xl">
+                    </div>
+                </div>
+
+                <!-- Feature 2: Marketing Hub -->
+                <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center animate-on-scroll">
+                    <div class="md:order-2 pl-6">
+                        <span class="inline-block px-4 py-1 text-sm font-semibold text-indigo-700 bg-indigo-100 rounded-full">Marketing Hub</span>
+                        <h2 class="mt-4 text-4xl md:text-5xl font-extrabold tracking-tighter">Attract and nurture the right leads.</h2>
+                        <p class="mt-5 text-lg text-gray-600">
+                            Run sophisticated marketing campaigns that feel personal. From email marketing to landing pages, Cohera gives you the tools to build your brand and fill your pipeline.
+                        </p>
+                        <ul class="mt-6 space-y-3">
+                            <li class="flex items-center text-gray-700">
+                                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                Drag-and-drop email & landing page builder
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                Visual customer journey automation
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                Advanced segmentation and personalization
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="md:order-1">
+                        <img src="https://placehold.co/600x450/e0e7ff/6366f1?text=Marketing+Automation+Flow" alt="Marketing Automation" class="rounded-xl shadow-2xl">
+                    </div>
+                </div>
+
+                <!-- Feature 3: Service Desk -->
+                <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center animate-on-scroll">
+                    <div class="pr-6">
+                        <span class="inline-block px-4 py-1 text-sm font-semibold text-emerald-700 bg-emerald-100 rounded-full">Service Desk</span>
+                        <h2 class="mt-4 text-4xl md:text-5xl font-extrabold tracking-tighter">Deliver world-class support.</h2>
+                        <p class="mt-5 text-lg text-gray-600">
+                            Turn customers into loyal fans with a support system that's fast, personal, and connected. Manage tickets, build a knowledge base, and track satisfaction all in one place.
+                        </p>
+                        <ul class="mt-6 space-y-3">
+                            <li class="flex items-center text-gray-700">
+                                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                Omnichannel support (Email, Chat, Social)
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                Self-service knowledge base
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                Customer satisfaction (CSAT) surveys
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <img src="https://placehold.co/600x450/d1fae5/059669?text=Service+Desk+Tickets" alt="Service Desk" class="rounded-xl shadow-2xl">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Features Grid -->
+        <section id="integrations" class="py-24 md:py-32 bg-gray-50/70">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl mx-auto text-center animate-on-scroll">
+                    <h2 class="text-4xl md:text-5xl font-extrabold tracking-tighter">Everything you need. Nothing you don't.</h2>
+                    <p class="mt-5 text-lg text-gray-600">
+                        Cohera is packed with powerful features and integrates seamlessly with the tools you already love.
+                    </p>
+                </div>
+                
+                <div class="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Feature Card 1 -->
+                    <div class="p-6 bg-white rounded-xl shadow-lg animate-on-scroll delay-100">
+                        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center">
+                            <!-- Icon: Analytics -->
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                        </div>
+                        <h3 class="mt-5 text-xl font-bold">Advanced Analytics</h3>
+                        <p class="mt-2 text-gray-600">Get real-time insights with customizable dashboards and deep-dive reports.</p>
+                    </div>
+                    <!-- Feature Card 2 -->
+                    <div class="p-6 bg-white rounded-xl shadow-lg animate-on-scroll delay-200">
+                        <div class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-lg flex items-center justify-center">
+                            <!-- Icon: Integrations -->
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14v6m-3-3h6M3 10h12M3 14h12m-6 4h.01M3 6h12M3 3v18h18V3H3z"></path></svg>
+                        </div>
+                        <h3 class="mt-5 text-xl font-bold">Powerful Integrations</h3>
+                        <p class="mt-2 text-gray-600">Connect Cohera to 1000+ apps like Slack, Google Workspace, and Zapier.</p>
+                    </div>
+                    <!-- Feature Card 3 -->
+                    <div class="p-6 bg-white rounded-xl shadow-lg animate-on-scroll delay-300">
+                        <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-lg flex items-center justify-center">
+                            <!-- Icon: Customization -->
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 16v-2m0-10v-2m0 6v-2m-6-2v2m0-6V4m0 16v-2m0-6v-2m10 8v2m0-6v-2m0-6V4m0 16v-2m0-6v-2M6 12h12"></path></svg>
+                        </div>
+                        <h3 class="mt-5 text-xl font-bold">Fully Customizable</h3>
+                        <p class="mt-2 text-gray-600">Adapt the CRM to your unique process with custom fields, objects, and workflows.</p>
+                    </div>
+                    <!-- Feature Card 4 -->
+                    <div class="p-6 bg-white rounded-xl shadow-lg animate-on-scroll delay-100">
+                        <div class="w-12 h-12 bg-rose-100 text-rose-600 rounded-lg flex items-center justify-center">
+                            <!-- Icon: Mobile -->
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h3 class="mt-5 text-xl font-bold">Mobile CRM</h3>
+                        <p class="mt-2 text-gray-600">Access your data and manage deals on the go with our powerful iOS & Android apps.</p>
+                    </div>
+                    <!-- Feature Card 5 -->
+                    <div class="p-6 bg-white rounded-xl shadow-lg animate-on-scroll delay-200">
+                        <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-lg flex items-center justify-center">
+                            <!-- Icon: Security -->
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        </div>
+                        <h3 class="mt-5 text-xl font-bold">Enterprise-Grade Security</h3>
+                        <p class="mt-2 text-gray-600">Your data is safe with GDPR compliance, SSO, and advanced permission controls.</p>
+                    </div>
+                    <!-- Feature Card 6 -->
+                    <div class="p-6 bg-white rounded-xl shadow-lg animate-on-scroll delay-300">
+                        <div class="w-12 h-12 bg-cyan-100 text-cyan-600 rounded-lg flex items-center justify-center">
+                            <!-- Icon: Support -->
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        </div>
+                        <h3 class="mt-5 text-xl font-bold">24/7 Expert Support</h3>
+                        <p class="mt-2 text-gray-600">Our award-winning support team is always here to help you succeed.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="bg-blue-600 text-white">
+            <div class="container mx-auto px-6 py-24 text-center">
+                <h2 class="text-4xl md:text-5xl font-extrabold tracking-tighter animate-on-scroll">
+                    Get started with Cohera today.
+                </h2>
+                <p class="mt-5 max-w-2xl mx-auto text-lg text-blue-100 animate-on-scroll delay-100">
+                    Join thousands of businesses growing better with Cohera. Start your 14-day free trial—no credit card required.
+                </p>
+                <div class="mt-10 animate-on-scroll delay-200">
+                    <a href="#" class="px-10 py-4 bg-white text-blue-600 text-lg font-bold rounded-lg shadow-2xl hover:bg-gray-100 transition-all transform hover:scale-105">
+                        Start Your Free Trial Now
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400">
+        <div class="container mx-auto px-6 py-16">
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-12">
+                <!-- Column 1: Logo & Socials -->
+                <div>
+                    <a href="#" class="text-3xl font-extrabold text-white">
+                        Cohera
+                    </a>
+                    <p class="mt-3 text-sm">
+                        The Future of Customer Relationships
+                    </p>
+                    <div class="mt-6 flex space-x-4">
+                        <!-- Social Icons (Placeholder) -->
+                        <a href="#" class="hover:text-white transition-colors"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M..."></path></svg></a>
+                        <a href="#" class="hover:text-white transition-colors"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M..."></path></svg></a>
+                        <a href="#" class="hover:text-white transition-colors"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M..."></path></svg></a>
+                    </div>
+                </div>
+                
+                <!-- Column 2: Product -->
+                <div>
+                    <h4 class="font-semibold text-white tracking-wide">Product</h4>
+                    <ul class="mt-4 space-y-3">
+                        <li><a href="#" class="hover:text-white transition-colors">Sales CRM</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Marketing Hub</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Service Desk</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Pricing</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Integrations</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Company -->
+                <div>
+                    <h4 class="font-semibold text-white tracking-wide">Company</h4>
+                    <ul class="mt-4 space-y-3">
+                        <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Press</a></li>
+                        <li><a href="#" class_alias="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Resources -->
+                <div>
+                    <h4 class="font-semibold text-white tracking-wide">Resources</h4>
+                    <ul class="mt-4 space-y-3">
+                        <li><a href="#" class="hover:text-white transition-colors">Knowledge Base</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Developer API</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Case Studies</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Webinars</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 5: Legal -->
+                <div>
+                    <h4 class="font-semibold text-white tracking-wide">Legal</h4>
+                    <ul class="mt-4 space-y-3">
+                        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom Footer -->
+            <div class="mt-12 border-t border-gray-800 pt-8 text-center">
+                <p class="text-sm">&copy; 2025 Cohera Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- JavaScript for Animations and Mobile Menu -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- Intersection Observer for Scroll Animations ---
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+
+            if ("IntersectionObserver" in window) {
+                const observer = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            observer.unobserve(entry.target); // Animate only once
+                        }
+                    });
+                }, {
+                    threshold: 0.1 // Trigger when 10% of the element is visible
+                });
+
+                animatedElements.forEach(el => {
+                    observer.observe(el);
+                });
+            } else {
+                // Fallback for very old browsers
+                animatedElements.forEach(el => {
+                    el.classList.add('is-visible');
+                });
+            }
+
+            // --- Mobile Menu Toggle ---
+            const menuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Close mobile menu if a link is clicked
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+        });
+    </script>
+
+</body>
 </html>

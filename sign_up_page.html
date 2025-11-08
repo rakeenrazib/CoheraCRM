@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Cohera CRM</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Base font */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Gradient text utility */
+        .text-gradient {
+            background: linear-gradient(to right, #3b82f6, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-sm shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="/index.html" class="text-3xl font-extrabold text-gradient">
+                Cohera
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="cohera_crm.html#features" class="text-gray-600 hover:text-blue-600 transition-colors">Features</a>
+                <a href="cohera_crm.html#pricing" class="text-gray-600 hover:text-blue-600 transition-colors">Pricing</a>
+                <a href="cohera_crm.html#integrations" class="text-gray-600 hover:text-blue-600 transition-colors">Integrations</a>
+                <a href="cohera_crm.html#testimonials" class="text-gray-600 hover:text-blue-600 transition-colors">Testimonials</a>
+            </div>
+
+            <!-- Desktop Auth Buttons -->
+            <div class="hidden md:flex items-center space-x-3">
+                <a href="cohera_login.html" class="text-gray-600 hover:text-blue-600 font-medium px-4 py-2 rounded-lg transition-colors">
+                    Sign In
+            </a>
+                </a>
+                <a href="/sign_up_page.html" class="bg-blue-600 text-white font-medium px-5 py-2 rounded-lg shadow-md hover:bg-blue-700 transition-colors">
+                    Start Free Trial
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <a href="cohera_crm.html#features" class="block px-6 py-3 text-gray-600 hover:bg-gray-50">Features</a>
+            <a href="cohera_crm.html#pricing" class="block px-6 py-3 text-gray-600 hover:bg-gray-50">Pricing</a>
+            <a href="cohera_crm.html#integrations" class="block px-6 py-3 text-gray-600 hover:bg-gray-50">Integrations</a>
+            <a href="cohera_crm.html#testimonials" class="block px-6 py-3 text-gray-600 hover:bg-gray-50">Testimonials</a>
+            <div class="border-t border-gray-100 p-4 space-y-3">
+                <a href="cohera_login.html" class="block w-full text-center text-gray-600 hover:text-blue-600 font-medium px-4 py-2 rounded-lg transition-colors">
+                    Sign In
+                </a>
+                <a href="cohera_signup.html" class="block w-full text-center bg-blue-600 text-white font-medium px-5 py-2 rounded-lg shadow-md hover:bg-blue-700 transition-colors">
+                    Start Free Trial
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sign Up Container -->
+    <!-- Adjusted min-height with calc() to account for header height, keeping form centered -->
+    <div class="min-h-[calc(100vh_-_76px)] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-lg w-full space-y-8">
+            
+            <!-- Header: Title (Logo removed from here) -->
+            <div>
+                <h2 class="mt-4 text-center text-3xl font-bold tracking-tight text-gray-900">
+                    Create your account
+                </h2>
+                <p class="mt-2 text-center text-sm text-gray-600">
+                    Start your 14-day free trial. No credit card needed.
+                </p>
+            </div>
+            
+            <!-- Sign Up Card -->
+            <div class="bg-white p-8 shadow-xl rounded-2xl space-y-6">
+                
+                <!-- Social Sign Up -->
+                <div class="space-y-4">
+                    <a href="#"
+                       class="w-full inline-flex items-center justify-center py-3 px-4 border border-gray-300 rounded-lg shadow-sm
+                              text-base font-semibold text-gray-700 bg-white hover:bg-gray-50
+                              focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
+                              transition-colors duration-200">
+                        <!-- Google Icon SVG -->
+                        <svg class="w-5 h-5 mr-3" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8c-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4C12.955 4 4 12.955 4 24s8.955 20 20 20s20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"></path><path fill="#FF3D00" d="M6.306 14.691L11.53 19.165C13.196 13.434 18.121 10 24 10c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4C16.318 4 9.656 8.337 6.306 14.691z"></path><path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-5.657-5.657C30.01 36.326 27.218 38 24 38c-5.879 0-10.8-3.434-12.469-8.835l-5.223 4.492C9.656 39.663 16.318 44 24 44z"></path><path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303c-.792 2.237-2.231 4.166-4.087 5.571l5.657 5.657C41.386 36.326 44 31.023 44 24c0-1.341-.138-2.65-.389-3.917z"></path>
+                        </svg>
+                        Sign up with Google
+                    </a>
+                    
+                    <a href="#"
+                       class="w-full inline-flex items-center justify-center py-3 px-4 border border-gray-300 rounded-lg shadow-sm
+                              text-base font-semibold text-gray-700 bg-white hover:bg-gray-50
+                              focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
+                              transition-colors duration-200">
+                        <!-- Microsoft Icon SVG -->
+                        <svg class="w-5 h-5 mr-3" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="#F25022" d="M1 1h10.5v10.5H1z"></path><path fill="#00A4EF" d="M1 13.5h10.5v10.5H1z"></path><path fill="#7FBA00" d="M13.5 1h10.5v10.5H13.5z"></path><path fill="#FFB900" d="M13.5 13.5h10.5v10.5H13.5z"></path>
+                        </svg>
+                        Sign up with Microsoft
+                    </a>
+                </div>
+
+                <!-- OR Separator -->
+                <div class="relative">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full border-t border-gray-300"></div>
+                    </div>
+                    <div class="relative flex justify-center text-sm">
+                        <span class="px-2 bg-white text-gray-500">
+                            Or continue with email
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Email Form -->
+                <form class="space-y-4" action="#" method="POST">
+                    
+                    <!-- Full Name -->
+                    <div>
+                        <label for="full-name" class="text-sm font-medium text-gray-700">Full Name</label>
+                        <div class="mt-1">
+                            <input id="full-name" name="name" type="text" autocomplete="name" required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400
+                                          focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                   placeholder="Jane Doe">
+                        </div>
+                    </div>
+
+                    <!-- Company Name -->
+                    <div>
+                        <label for="company-name" class="text-sm font-medium text-gray-700">Company Name</label>
+                        <div class="mt-1">
+                            <input id="company-name" name="company" type="text" autocomplete="organization" required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400
+                                          focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                   placeholder="Acme Inc.">
+                        </div>
+                    </div>
+                    
+                    <!-- Email Input -->
+                    <div>
+                        <label for="email-address" class="text-sm font-medium text-gray-700">Email address</label>
+                        <div class="mt-1">
+                            <input id="email-address" name="email" type="email" autocomplete="email" required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400
+                                          focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                   placeholder="you@company.com">
+                        </div>
+                    </div>
+                    
+                    <!-- Password Input -->
+                    <div>
+                        <label for="password" class="text-sm font-medium text-gray-700">Password</label>
+                        <div class="mt-1">
+                            <input id="password" name="password" type="password" autocomplete="new-password" required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400
+                                          focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                   placeholder="••••••••">
+                        </div>
+                        <p class="mt-1 text-xs text-gray-500">Must be at least 8 characters.</p>
+                    </div>
+
+                    <!-- Terms of Service Checkbox -->
+                    <div class="pt-2">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <input id="terms" name="terms" type="checkbox" required
+                                       class="h-4 w-4 text-blue-600 border-gray-300 rounded
+                                              focus:ring-blue-500">
+                            </div>
+                            <div class="ml-3 text-sm">
+                                <label for="terms" class="text-gray-700">
+                                    I agree to the 
+                                    <a href="#" class="font-medium text-blue-600 hover:text-blue-500">Terms of Service</a> 
+                                    and 
+                                    <a href="#" class="font-medium text-blue-600 hover:text-blue-500">Privacy Policy</a>.
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Sign Up Button -->
+                    <div class="pt-2">
+                        <button type="submit"
+                                class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-lg
+                                       text-base font-semibold text-white bg-blue-600 hover:bg-blue-700
+                                       focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
+                                       transition-colors duration-200">
+                            Create My Account
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Sign In Link -->
+            <p class="mt-6 text-center text-sm text-gray-600">
+                Already have an account?
+                <a href="/log_in.html" class="font-medium text-blue-600 hover:text-blue-500">
+                    Sign in
+                </a>
+            </p>
+            
+        </div>
+    </div>
+
+    <!-- JavaScript for Mobile Menu -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- Mobile Menu Toggle ---
+            const menuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if(menuButton && mobileMenu) {
+                menuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+                
+                // Close mobile menu if a link is clicked
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+            }
+
+        });
+    </script>
+
+</body>
+</html>
